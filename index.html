@@ -10,7 +10,7 @@
 </head>
 <body>
     <header>
-        <div class="container">
+        <div class="container" style="background: url(https://loading.io/asset/593700);">
             <nav>
                 <div class="logo">
                     <a href="index.html">
@@ -19,20 +19,22 @@
                 </div>
                 <div class="navigation">
                     <ul>
-                        <li><a href="#">Beneficios</a></li>
-                        <li><a href="#">Testimonios</a></li>
-                        <li><a href="#">Preguntas frecuentes</a></li>
-                        <li><a href="#">Contáctanos</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+                        <li><a href="#home">Contáctanos</a></li>
                     </ul>
                 </div>
             </nav>
         </div>
     </header>
     <main>
-        <section class="home">
+        <section class="home" id="home">
+            <canvas id="my-canvas"></canvas>
+            <img class="fondo-persona" src="img/mujer.png" alt="">
+            <div class="container">
                 <div class="content">
                     <div class="part1">
-                        <img src="img/mujer.png" alt="">
                     </div>
                     <div class="part2">
                         <div class="contenido">
@@ -100,9 +102,9 @@
                                             <input type="checkbox" required="" id="si"><span>Sí</span>
                                             <input type="checkbox" required="" id="no"><span>No</span>
                                         </span>               
-                                    </div>
-                                    <p>¿Tú local está a 150m2 de colegios o iglesias?</p>
-                                    <div class="form-group checkbox">               
+                                    </div>                                    
+                                    <div class="form-group checkbox">    
+                                        <p>¿Tú local está a 150m2 de colegios o iglesias?</p>           
                                         <span>                                                      
                                             <input type="checkbox" required="" id="si"><span>Sí</span>
                                             <input type="checkbox" required="" id="no"><span>No</span>
@@ -115,8 +117,9 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </section>
-        <section class="beneficios">
+        <section class="beneficios" id="beneficios">
             <div class="container">
                 <div class="content">
                     <h2>Beneficios que ofrecemos</h2>
@@ -142,7 +145,7 @@
                 </div>
             </div>
         </section>
-        <section class="testimonios">
+        <section class="testimonios" id="testimonios">
             <div class="container">
                 <div class="content">
                     <h2>Testimonios </h2>
@@ -209,7 +212,7 @@
                 </div>
             </div>
         </section>
-        <section class="preguntas">
+        <section class="preguntas" id="preguntas">
             <div class="container">
                 <h2>Preguntas frecuentes</h2>
                 <p>Resuelve todas tus dudas aquí.</p>
@@ -311,6 +314,7 @@
     <script src="https://cdn.jsdelivr.net/gh/leafo/sticky-kit@v1.1.2/jquery.sticky-kit.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.1/ScrollTrigger.min.js"></script>  
+    <script src="js/index.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
