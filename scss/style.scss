@@ -92,7 +92,7 @@ header{
                         color: #fff;
                     }
                 }
-                li:last-child{
+                li.contacto{
                     padding-right: 0;
                     padding-left: 20px;
                     a{
@@ -380,7 +380,7 @@ section.testimonios{
         // }
     }
     .card{
-        width: 415px;
+        max-width: 415px;
         border-radius: 10px;
         background-color: #fff;                
         border: 3px solid #fff;
@@ -569,7 +569,7 @@ footer{
         position: absolute;
         top: 0;
         right: 0;
-        width: 944px;
+        width: 907px;
         height: 100%;
         background-color: var(--color-amarillo);
         z-index: -2;
@@ -578,11 +578,11 @@ footer{
         content: '';
         position: absolute;
         top: 0px;
-        right: 944px;
+        right: 907px;
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: 0 70px 210px 0;
+        border-width: 0 70px 220px 0;
         border-color: transparent #F2E52D transparent transparent;
     }
     .content{
@@ -610,23 +610,23 @@ footer{
                 justify-content: flex-end;
                 align-items: center;
             }
-            .one{
                 p{
                     font-weight: 700;
                     font-size: 20px;
                     color: #0B682F;
-                    margin-right: 100px;
+                    margin-right: 45px;
                 }
                 .redes{
-                    margin-top: 15px;
                     img{
                         margin: 0 21px;
                     }
                     img:first-child{
                         margin-left: 0;
                     }
+                    img:last-child{
+                        margin-right: 0;
+                    }
                 }
-            }
         }
     }
 }
@@ -680,18 +680,291 @@ footer{
     }
 }
 
+header nav .navigation ul li.btmmenumovil,
+section.home .content .part2 img{
+    display: none;
+}
+
 @media (max-width: 1440px) {
+    section.beneficios,
+    section.testimonios,
+    section.preguntas,
+    section.tarjeta-preg {
+        padding: 100px 0;
+    }
+    footer{
+        padding: 50px 0;
+    }
+    section.home .content .part2 h1, h2{
+        font-size: 56px;
+    }
+    section.home .content .part2 h1{
+        line-height: 114%;
+    }
+    p{
+        font-size: 21px;
+    }
     header nav .logo img{
         width: 239px;
     }
     header nav .navigation ul li a{
-        font-size: 16px;
+        font-size: 24px;
     }
     header::before {
-        width: 972px;
+        width: 1016px;
     }
     header::after {
-        right: 972px;
+        right: 1016px;
         border-width: 0 0 91.52px 50px;
+    }
+    section.home{
+        margin-top: 91.52px;
+    }
+    section.home .content .part2 form fieldset .form-group input,
+    section.home .content .part2 form fieldset .form-group.checkbox span span,
+    section.home .content .part2 form fieldset .form-group select,
+    section.home .content .part2 form fieldset p.msm,
+    section.home .content .part2 form fieldset p:last-child input
+    {
+        font-size: 21px;
+    }
+    section.testimonios .img-tienda img{
+        width: 376px;
+    }
+    section.testimonios .card .info p,
+    section.testimonios .card .ubi p{
+        font-size: 21px;
+    }
+    section.testimonios .card .info h3{
+        font-size: 31px;
+    }
+    section.testimonios .card {
+        max-width: 350px;
+    }
+    section.testimonios .cards .card:nth-child(1)::after {
+        transform: scale(0.95);
+    }
+    section.testimonios .cards .par .card:nth-child(1)::after {
+        transform: scale(0.95) rotate(180deg);
+    }
+    section.testimonios .btn a{
+        font-size: 24px;
+    }
+    section.preguntas .faq-content h3{
+        font-size: 31px;
+    }
+    section.preguntas .faq-content {
+        margin-top: 70px;
+    }
+    section.preguntas .faq-content .faq-container{
+        margin-top: 50px;
+        padding-bottom: 50px;
+    }
+    section.preguntas p {
+        padding-top: 25px;
+    }
+    section.tarjeta-preg .content form input{
+        font-size: 21px;
+    }
+    footer .content .part1 p{
+        font-size: 24px;
+    }
+    footer .content .part1 a{
+        font-size: 31px;
+    }
+    footer .content .part2{
+        .two{
+            img{
+                width: 239px;
+            }
+        }
+    }
+    footer::after{
+        border-width: 0 70px 194px 0;
+    }
+    footer .content .part2 p{
+        font-size: 18px;
+    }
+    footer .content .part2 p {
+        margin-right: 35px;
+    }
+    footer .content .part2 .redes img {
+        margin: 0 15px;
+    }
+    footer::before {
+        width: 592px;
+    }
+    footer::after {
+        right: 592px;
+    }
+}
+
+@media (max-width: 1280px) {
+    header nav .navigation ul li{
+        padding: 0 16px;
+    }
+    header nav .navigation ul li a {
+        font-size: 20px;
+    }
+    header::before {
+        width: 850px;
+    }
+    header::after{
+        right: 850px;
+    }
+    section.home .content .part2 h1, h2 {
+        font-size: 50px;
+    }
+    .container {
+        width: 87.5%;
+    }
+    .home{
+        .container{
+            width: 90%;
+        }
+    }
+    section.beneficios .content .grid-beneficios{
+        grid-column-gap: 40px;
+    }
+    .testimonios{
+        .container {
+            width: 95%;
+        }
+    }
+    section.testimonios .card{
+        padding: 30px;
+    }
+    section.testimonios .card .ubi{
+        padding-left: 0px;
+    }
+    section.testimonios .card .info h3 {
+        font-size: 28px;
+    }
+    section.preguntas .faq-content h3 {
+        font-size: 28px;
+    }
+    section.preguntas .faq-content .faq-container {
+        margin-top: 30px;
+        padding-bottom: 30px;
+    }
+    footer .content .part2 .content2 .redes img{
+        width: 30px;
+        // margin: 0 10px;
+    }
+    footer .content .part2 .redes img {
+        margin: 0 10px;
+    }
+    footer .content .part2 .redes img:first-child {
+        margin-left: 0;
+    }
+    footer .content .part2 .redes img:last-child {
+        margin-right: 0;
+    }
+    footer::before {
+        width: 450px;
+    }
+    footer::after{
+        right: 450px;
+        border-width: 0 70px 185px 0;
+    }
+    footer .content .part1 p {
+        font-size: 21px;
+    }
+    footer .content .part1 a {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 1024px) {
+    section.home {
+        margin-top: 88px;
+    }
+    header nav .navigation ul li{
+        display: none;
+    }
+    header nav .navigation ul{
+        display: flex;
+        align-items: center;
+    }
+    header nav .navigation ul li.contacto,
+    header nav .navigation ul li.btmmenumovil{
+        display: block;
+    }
+    header nav .logo img {
+        width: 206px;
+    }
+    header{
+        padding: 17px 0;
+    }
+    header::before {
+        width: 55%; /*585*/
+    }
+    header::after {
+        right: 55%;
+        border-width: 0 0 88px 50px;
+    }
+    section.home .fondo-persona{
+        display: none;
+    }
+    section.home .content .part1 {
+        width: 0%;
+    }
+    section.home .content .part2 {
+        width: 100%;
+    }
+    section.home .content .part2{
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    section.home .content .part2 .contenido {
+        max-width: 541px;
+    }
+    section.home .content .part2 img{
+        display: block;
+        max-width: 718px;
+        margin-bottom: 20px;
+    }
+    section.beneficios .content .grid-beneficios{
+        grid-template-columns: repeat(2, 1fr);
+        grid-column-gap: 60px;
+        grid-row-gap: 45px;
+    }
+    section.home .content .part2 h1, h2 {
+        font-size: 45px;
+    }
+    p {
+        font-size: 18px;
+    }
+    .beneficios{
+        .container {
+            width: 75%;
+        }
+    }
+    section.testimonios .cards{
+        flex-direction: column;
+    }
+    .testimonios .container {
+        width: 90%;
+    }
+    section.testimonios .img-tienda{
+        left: initial;
+        right: 0;
+        transform: translateX(0%);
+    }
+    section.testimonios .card {
+        border: 3px solid var(--color-verde);
+    }
+    section.testimonios .cards .par {
+        transform: translateY(0px);
+        margin-top: 50px;
+    }
+    section.testimonios .cards .par .card:nth-child(1)::after {
+        transform: scale(0.95) rotate(0);
+    }
+    section.testimonios .cards .par .card::after{
+        left: initial;
+        right: -80px;
+        top: 40%;
     }
 }

@@ -5,7 +5,7 @@ var confetti = new ConfettiGenerator(confettiSettings);
 confetti.render();
 
 const menuItems = document.querySelectorAll(
-	'.navigation ul li a[href^="#"]'
+	'a[href^="#"]'
 );
 
 function getScrollTopByHref(element) {
