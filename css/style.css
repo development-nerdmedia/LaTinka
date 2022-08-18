@@ -329,7 +329,11 @@ section.beneficios {
       align-items: center; }
       section.beneficios .content .grid-beneficios .item img {
         margin-bottom: 40px;
-        filter: drop-shadow(0px 4px 14px rgba(255, 164, 0, 0.66)); }
+        filter: drop-shadow(0px 4px 14px rgba(255, 164, 0, 0.66));
+        position: relative;
+        transition: 0.2s linear; }
+        section.beneficios .content .grid-beneficios .item img:hover {
+          transform: translateY(-10px); }
       section.beneficios .content .grid-beneficios .item p {
         line-height: 144%; }
 
@@ -354,6 +358,8 @@ section.testimonios {
       position: absolute;
       right: -80px;
       top: 40%; }
+    section.testimonios .cards .card:nth-child(1):hover::after {
+      animation: desplazamiento 1.3s infinite; }
     section.testimonios .cards .par {
       transform: translateY(100px); }
     section.testimonios .cards .par .card::after {
@@ -363,6 +369,8 @@ section.testimonios {
       left: -80px;
       right: initial;
       top: 40%; }
+    section.testimonios .cards .par .card:hover::after {
+      animation: desplazamiento2 1.3s infinite; }
   section.testimonios .card {
     max-width: 415px;
     border-radius: 10px;
@@ -425,6 +433,22 @@ section.testimonios {
     left: 50%;
     transform: translateX(-50%); }
 
+@keyframes desplazamiento {
+  0% {
+    transform: translateX(0); }
+  50% {
+    transform: translateX(10px); }
+  100% {
+    transform: translateX(0); } }
+
+@keyframes desplazamiento2 {
+  0% {
+    transform: rotate(180deg) translateX(0); }
+  50% {
+    transform: rotate(180deg) translateX(10px); }
+  100% {
+    transform: rotate(180deg) translateX(0); } }
+
 section.preguntas {
   padding: 140px 0; }
   section.preguntas p {
@@ -447,7 +471,10 @@ section.preguntas {
       section.preguntas .faq-content .faq-collapsible img {
         transform: rotate(90deg);
         width: 21px;
-        height: 16px; }
+        height: 16px;
+        transition: 0.2s linear; }
+    section.preguntas .faq-content .faq-collapsible img.giro {
+      transform: rotate(-90deg); }
     section.preguntas .faq-content .faq-container {
       border-bottom: 3px solid #0B682F;
       margin-top: 60px;
@@ -455,10 +482,10 @@ section.preguntas {
       cursor: pointer; }
     section.preguntas .faq-content .faq-answer {
       overflow: hidden;
-      transition: 0.5s;
-      height: 0; }
+      transition: 0.5s linear;
+      max-height: 0; }
     section.preguntas .faq-content .open {
-      height: auto;
+      max-height: 100px;
       transform: translateY(0); }
 
 section.tarjeta-preg {
@@ -635,7 +662,12 @@ header nav .navigation ul li.btmmenumovil,
 section.home .content .part2 img {
   display: none; }
 
+section.testimonios .card-testimonios .part2 {
+  display: none; }
+
 @media (max-width: 1440px) {
+  header {
+    padding: 20px 0; }
   section.beneficios,
   section.testimonios,
   section.preguntas,
@@ -651,13 +683,14 @@ section.home .content .part2 img {
     font-size: 21px; }
   header nav .logo img {
     width: 239px; }
-  header nav .navigation ul li a {
+  header nav .navigation ul li a,
+  header nav .navigation ul li.contacto button {
     font-size: 24px; }
   header::before {
     width: 1016px; }
   header::after {
     right: 1016px;
-    border-width: 0 0 91.52px 50px; }
+    border-width: 0 0 95px 50px; }
   section.home {
     margin-top: 91.52px; }
   section.home .content .part2 form fieldset .form-group input,
@@ -704,8 +737,6 @@ section.home .content .part2 img {
     font-size: 18px; }
   footer .content .part2 p {
     margin-right: 35px; }
-  footer .content .part2 .redes img {
-    margin: 0 15px; }
   footer::before {
     width: 592px; }
   footer::after {
@@ -714,12 +745,16 @@ section.home .content .part2 img {
 @media (max-width: 1280px) {
   header nav .navigation ul li {
     padding: 0 16px; }
-  header nav .navigation ul li a {
+  header nav .navigation ul li a,
+  header nav .navigation ul li.contacto button {
     font-size: 20px; }
+  section.home {
+    margin-top: 90px; }
   header::before {
     width: 850px; }
   header::after {
-    right: 850px; }
+    right: 850px;
+    border-width: 0 0 90px 50px; }
   section.home .content .part2 h1, h2 {
     font-size: 50px; }
   .container {
@@ -741,14 +776,6 @@ section.home .content .part2 img {
   section.preguntas .faq-content .faq-container {
     margin-top: 30px;
     padding-bottom: 30px; }
-  footer .content .part2 .content2 .redes img {
-    width: 30px; }
-  footer .content .part2 .redes img {
-    margin: 0 10px; }
-  footer .content .part2 .redes img:first-child {
-    margin-left: 0; }
-  footer .content .part2 .redes img:last-child {
-    margin-right: 0; }
   footer::before {
     width: 450px; }
   footer::after {
@@ -760,8 +787,28 @@ section.home .content .part2 img {
     font-size: 28px; } }
 
 @media (max-width: 1024px) {
+  section.tarjeta-preg .content .part1 h2 {
+    text-align: center; }
+  section.testimonios .cards .par .card:hover::after {
+    animation: desplazamiento 1.3s infinite; }
+  section.testimonios .card-testimonios {
+    display: flex; }
+  section.testimonios .card-testimonios .part2 {
+    display: block;
+    margin-top: 80px;
+    display: flex;
+    justify-content: flex-end; }
+  section.testimonios .img-tienda.destok {
+    display: none; }
+  section.testimonios .part2 {
+    width: 50%;
+    position: relative; }
+  section.testimonios .person-testimonios {
+    width: 50%; }
+  section.beneficios, section.testimonios, section.preguntas, section.tarjeta-preg {
+    padding: 80px 0; }
   section.home {
-    margin-top: 88px; }
+    margin-top: 84px; }
   header nav .navigation ul li {
     display: none; }
   header nav .navigation ul {
@@ -770,6 +817,9 @@ section.home .content .part2 img {
   header nav .navigation ul li.contacto,
   header nav .navigation ul li.btmmenumovil {
     display: block; }
+  header nav .navigation ul li.btmmenumovil {
+    display: flex;
+    padding-right: 0; }
   header nav .logo img {
     width: 206px; }
   header {
@@ -779,7 +829,7 @@ section.home .content .part2 img {
     /*585*/ }
   header::after {
     right: 55%;
-    border-width: 0 0 88px 50px; }
+    border-width: 0 0 84px 50px; }
   section.home .fondo-persona {
     display: none; }
   section.home .content .part1 {
@@ -795,6 +845,7 @@ section.home .content .part2 img {
   section.home .content .part2 img {
     display: block;
     max-width: 718px;
+    width: 100%;
     margin-bottom: 20px; }
   section.beneficios .content .grid-beneficios {
     grid-template-columns: repeat(2, 1fr);
@@ -812,11 +863,11 @@ section.home .content .part2 img {
     width: 90%; }
   section.testimonios .img-tienda {
     left: initial;
-    right: 0;
-    transform: translateX(0%); }
+    right: initial;
+    transform: initial; }
   section.testimonios .person-testimonios {
     padding-bottom: 0px;
-    margin-bottom: 85px; }
+    margin-bottom: 0px; }
   section.testimonios .cards {
     padding-top: 0px;
     margin-top: 80px; }
@@ -848,4 +899,75 @@ section.home .content .part2 img {
   section.home .content .part2 form fieldset .form-group.checkbox:last-child {
     margin-top: 0px; }
   section.home .content .part2 form fieldset p {
-    margin-top: 20px; } }
+    margin-top: 20px; }
+  section.testimonios .card .info h3 {
+    font-size: 25px; }
+  section.preguntas .faq-content h3 {
+    font-size: 25px; }
+  section.testimonios .card .info p, section.testimonios .card .ubi p {
+    font-size: 18px; }
+  section.tarjeta-preg .content {
+    flex-direction: column;
+    align-items: flex-start; }
+  section.tarjeta-preg .content .part1, section.tarjeta-preg .content .part2 {
+    width: 100%; }
+  section.tarjeta-preg .content .part2 {
+    margin-top: 30px; }
+  section.tarjeta-preg .content form fieldset {
+    justify-content: space-between; }
+  section.tarjeta-preg .content form input {
+    max-width: 100%; }
+  section.tarjeta-preg .content form input {
+    font-size: 18px; }
+  footer {
+    position: relative;
+    padding-bottom: 0; }
+    footer .container {
+      width: 100%; }
+  footer .content .part2 .content2 {
+    justify-content: flex-start;
+    align-items: center; }
+  footer .content {
+    flex-direction: column; }
+  footer .content .part1 {
+    width: 100%; }
+  footer .content .part1 p {
+    font-size: 18px; }
+  footer .content .part1 a {
+    font-size: 25px; }
+  footer::before {
+    content: none; }
+  footer::after {
+    content: none; }
+  footer .content .part1,
+  footer .content .part2 {
+    padding: 0 6.2vw; }
+  footer .content .part1 {
+    width: 100%;
+    padding-bottom: 25px; }
+  footer .content .part2 {
+    width: 100%;
+    padding-top: 25px;
+    background-color: var(--color-amarillo);
+    padding-bottom: 25px; } }
+
+@media (max-width: 768px) {
+  header::before {
+    width: 50%; }
+  header::after {
+    right: 50%; }
+  .beneficios .container {
+    width: 87.5%; }
+  section.testimonios .card {
+    max-width: 290px; }
+  section.testimonios .img-tienda img {
+    width: 330px; } }
+
+@media (max-width: 500px) {
+  footer .content .part1 a {
+    font-size: 22px; }
+  section.home .content .part2 h1, h2 {
+    font-size: 40px; }
+  section.preguntas .faq-content h3 {
+    font-size: 22px;
+    padding-right: 30px; } }

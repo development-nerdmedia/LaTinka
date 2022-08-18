@@ -73,6 +73,7 @@ if(mediaqueryList.matches) {
 
 let collapsible = document.querySelectorAll(".faq-container");
 let answer = document.querySelectorAll(".faq-answer");
+let flecha = document.querySelectorAll(".faq-collapsible img");
 
 function answerOpen() {
 	for (let i = 0; i < answer.length; i++) {
@@ -80,11 +81,19 @@ function answerOpen() {
 	}
 }
 
+function flechagiro() {
+	for (let i = 0; i < flecha.length; i++) {
+		flecha[i].classList.remove("giro");
+	}
+}
+
 
 collapsible.forEach((element) => {
 	element.addEventListener("click", () => {
 		answerOpen();
+		flechagiro();
 		element.querySelector(".faq-answer").classList.add("open");
+		element.querySelector(".faq-collapsible img").classList.add("giro");
 	});
 });
 
