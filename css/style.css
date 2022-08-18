@@ -79,16 +79,82 @@ header {
             font-family: var(--fuente-poppins);
             font-weight: 500;
             font-size: 26px;
-            text-decoration: none;
-            color: #fff; }
+            text-decoration: none; }
+            header nav .navigation ul li a .text {
+              position: relative; }
+              header nav .navigation ul li a .text .popUpWord {
+                color: #fff; }
+              header nav .navigation ul li a .text .outPop {
+                color: #F2E52D;
+                height: 100%;
+                left: 0;
+                overflow: hidden;
+                position: absolute;
+                transition: all .2s ease-out 0s;
+                width: 0; }
+            header nav .navigation ul li a:hover .text .outPop {
+              width: 100%; }
         header nav .navigation ul li.contacto {
           padding-right: 0;
           padding-left: 20px; }
-          header nav .navigation ul li.contacto a {
+          header nav .navigation ul li.contacto button {
             background-color: var(--color-rojo);
             border-radius: 30px;
             padding: 10px 20px;
-            font-weight: 600; }
+            font-weight: 600;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            font-family: var(--fuente-poppins);
+            font-weight: 500;
+            font-size: 26px; }
+            header nav .navigation ul li.contacto button::after {
+              border-radius: 50%;
+              bottom: 0;
+              content: "";
+              height: 100%;
+              left: 0;
+              position: absolute;
+              -webkit-transform: translateY(100%);
+              transform: translateY(100%);
+              transition: all 0.4s cubic-bezier(0.57, 0.25, 0.33, 1) 0s;
+              width: 100%;
+              z-index: 1;
+              background-color: rgba(0, 0, 0, 0.1); }
+            header nav .navigation ul li.contacto button:hover::after {
+              transform: translateY(50%);
+              -webkit-transform: translateY(50%); }
+
+/* Underline From Left */
+.hvr-underline-from-left {
+  display: inline-block;
+  vertical-align: middle;
+  -webkit-transform: perspective(1px) translateZ(0);
+  transform: perspective(1px) translateZ(0);
+  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden; }
+
+.hvr-underline-from-left:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: 0;
+  right: 100%;
+  bottom: 0;
+  background: #0B682F;
+  height: 4px;
+  -webkit-transition-property: right;
+  transition-property: right;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out; }
+
+.hvr-underline-from-left:hover:before, .hvr-underline-from-left:focus:before, .hvr-underline-from-left:active:before {
+  right: 0; }
 
 section.home {
   margin-top: 111px;
@@ -163,6 +229,10 @@ section.home {
                 outline-style: none; }
               section.home .content .part2 form fieldset .form-group input::placeholder {
                 color: #000; }
+            section.home .content .part2 form fieldset .form-group input[type=number]::-webkit-inner-spin-button,
+            section.home .content .part2 form fieldset .form-group input[type=number]::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+              margin: 0; }
             section.home .content .part2 form fieldset .form-group select {
               width: 100%;
               font-family: var(--fuente-poppins);
@@ -466,6 +536,7 @@ footer {
         font-size: 26px;
         margin-bottom: 15px; }
       footer .content .part1 a {
+        text-decoration: none;
         font-family: var(--fuente-poppins);
         font-weight: 700;
         font-size: 33px;
@@ -481,11 +552,41 @@ footer {
         font-size: 20px;
         color: #0B682F;
         margin-right: 45px; }
-      footer .content .part2 .redes img {
-        margin: 0 21px; }
-      footer .content .part2 .redes img:first-child {
+      footer .content .part2 .redes div {
+        width: 47px;
+        height: 47px;
+        display: inline-block;
+        position: relative;
+        border-radius: 50%; }
+        footer .content .part2 .redes div a {
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2; }
+        footer .content .part2 .redes div img {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%); }
+        footer .content .part2 .redes div::before {
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: var(--color-verde);
+          position: absolute;
+          top: 0;
+          left: 0;
+          transition: transform 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+          border-radius: 50% !important; }
+        footer .content .part2 .redes div:hover::before {
+          transform: scale(1.1); }
+      footer .content .part2 .redes div {
+        margin: 0 10px; }
+      footer .content .part2 .redes div:first-child {
         margin-left: 0; }
-      footer .content .part2 .redes img:last-child {
+      footer .content .part2 .redes div:last-child {
         margin-right: 0; }
 
 .pagethanks {
@@ -713,6 +814,14 @@ section.home .content .part2 img {
     left: initial;
     right: 0;
     transform: translateX(0%); }
+  section.testimonios .person-testimonios {
+    padding-bottom: 0px;
+    margin-bottom: 85px; }
+  section.testimonios .cards {
+    padding-top: 0px;
+    margin-top: 80px; }
+  section.testimonios .card-testimonios {
+    margin-top: 0; }
   section.testimonios .card {
     border: 3px solid var(--color-verde); }
   section.testimonios .cards .par {
@@ -723,4 +832,20 @@ section.home .content .part2 img {
   section.testimonios .cards .par .card::after {
     left: initial;
     right: -80px;
-    top: 40%; } }
+    top: 40%; }
+  section.home .content .part2 form fieldset .form-group input, section.home .content .part2 form fieldset .form-group.checkbox span span, section.home .content .part2 form fieldset .form-group select, section.home .content .part2 form fieldset p.msm, section.home .content .part2 form fieldset p:last-child input {
+    font-size: 18px; }
+  section.home .content .part2 p {
+    text-align: center; }
+  section.home .content .part2 form {
+    margin-top: 20px; }
+  section.home .content .part2 form fieldset .form-group.select span::before {
+    transform: scale(0.87); }
+  section.home .content .part2 form fieldset .form-group.checkbox p {
+    text-align: start; }
+  section.home .content .part2 form fieldset .form-group.checkbox {
+    margin-top: 0px; }
+  section.home .content .part2 form fieldset .form-group.checkbox:last-child {
+    margin-top: 0px; }
+  section.home .content .part2 form fieldset p {
+    margin-top: 20px; } }

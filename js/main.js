@@ -54,10 +54,21 @@ function smoothScrollTo(endX, endY, duration) {
 	}, 1000 / 60); // 60 fps
 }
 
-if ($(".img-tienda").length > 0) {
-	$(".img-tienda").stick_in_parent({
-		offset_top: 180,
-	});
+
+var mediaqueryList = window.matchMedia("(max-width: 1025px)");
+if(mediaqueryList.matches) {
+	if ($(".img-tienda").length > 0) {
+		$(".img-tienda").stick_in_parent({
+			offset_top: 180,
+			offset_right: 52,
+		});
+	}
+}else{
+	if ($(".img-tienda").length > 0) {
+		$(".img-tienda").stick_in_parent({
+			offset_top: 180,
+		});
+	}
 }
 
 let collapsible = document.querySelectorAll(".faq-container");
@@ -68,6 +79,7 @@ function answerOpen() {
 		answer[i].classList.remove("open");
 	}
 }
+
 
 collapsible.forEach((element) => {
 	element.addEventListener("click", () => {
