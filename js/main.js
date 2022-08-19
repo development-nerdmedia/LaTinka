@@ -55,7 +55,78 @@ function smoothScrollTo(endX, endY, duration) {
 }
 
 
-var mediaqueryList = window.matchMedia("(max-width: 1025px)");
+/* contacto */
+
+var formespacio = document.querySelectorAll('.home .form-group');
+var formespacioinput = document.querySelectorAll('.home .form-input');
+var formespacioselect = document.querySelectorAll('.home form select');
+
+function validateInput(e){
+	for (let y = 0; y < formespacioinput.length; y++) {
+		if (!formespacioinput[y].value) {
+			formespacioinput[y].classList.add("error");
+			e.preventDefault();              
+		}
+	}
+}
+
+function validateSelect(e){
+	for (let y = 0; y < formespacioselect.length; y++) {
+		if (formespacioselect[y].value == "0") {
+			formespacioselect[y].classList.add("error");
+			e.preventDefault();              
+		}              
+	}
+}
+
+document.addEventListener("click", function (e) {
+	if (e.target.closest(".home form select")) {
+		formespacioselect.forEach(function (shinyItem2) {
+			shinyItem2.parentElement.classList.remove("active");  
+		})
+		e.target.parentElement.classList.add("active");  
+	}else{
+		formespacioselect.forEach(function (shinyItem2) {
+			shinyItem2.parentElement.classList.remove("active"); 
+		});
+	}
+	if (e.target.closest(".home form input[type='submit']")) {
+		validateInput(e)
+		validateSelect(e)
+	}
+})
+
+/* end contacto */
+
+MyApp = {
+	inputTarjeta: {
+        init: function () {
+			var formespacioinput2 = document.querySelectorAll(".tarjeta-preg input[type='text']");
+
+			function validateInput2(e){
+				for (let y = 0; y < formespacioinput2.length; y++) {
+					if (!formespacioinput2[y].value) {
+						formespacioinput2[y].classList.add("error");
+						e.preventDefault();              
+					}
+				}
+			}
+
+			document.addEventListener("click", function (e) {
+				if (e.target.closest(".tarjeta-preg form input[type='submit']")) {
+					validateInput2(e)
+				}
+			})			
+        }
+    },
+}
+
+if ($('.tarjeta-preg form').length > 0) {
+    MyApp.inputTarjeta.init();
+}
+
+
+var mediaqueryList = window.matchMedia("(max-width: 1201px)");
 if(mediaqueryList.matches) {
 	if ($(".img-tienda").length > 0) {
 		$(".img-tienda").stick_in_parent({
@@ -96,4 +167,3 @@ collapsible.forEach((element) => {
 		element.querySelector(".faq-collapsible img").classList.add("giro");
 	});
 });
-
