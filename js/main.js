@@ -134,6 +134,15 @@ if(mediaqueryList.matches) {
 			offset_right: 52,
 		});
 	}
+	
+	if ($('.person-testimonios .cards .card').length > 0) {
+    	listaItem = document.querySelectorAll(".person-testimonios .cards .card");
+    	for (let i = 0; i < listaItem.length; i++) {
+        	listaItem[i].setAttribute("data-aos", "fade-right")
+        	listaItem[i].setAttribute("data-aos-once", "true")
+        	listaItem[i].setAttribute("data-aos-offset", "500")
+    	}
+	}
 }else{
 	if ($(".img-tienda").length > 0) {
 		$(".img-tienda").stick_in_parent({
