@@ -13,6 +13,16 @@
   --color-amarillo: #F2E52D;
   --color-rojo: #DB2727; }
 
+body.scrollhidden {
+  overflow-x: scroll;
+  overflow-y: hidden; }
+
+section.menupage {
+  display: none; }
+
+section.menupage.open {
+  transform: translateX(0%); }
+
 .container {
   width: 85%;
   max-width: 1580px;
@@ -1031,6 +1041,45 @@ section.testimonios .card-testimonios .part2 {
     content: none; } }
 
 @media (max-width: 1130px) {
+  section.menupage {
+    transform: translateX(100%);
+    display: block;
+    position: fixed;
+    height: 100vh;
+    width: 100%;
+    z-index: 99;
+    overflow: hidden;
+    transition: 0.3s linear;
+    background-color: #0B682F;
+    padding: 30px 0; }
+    section.menupage .container {
+      position: relative;
+      height: 100%; }
+    section.menupage .top {
+      position: absolute;
+      right: 0; }
+    section.menupage .content {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      justify-content: center; }
+      section.menupage .content ul {
+        list-style: none; }
+        section.menupage .content ul li {
+          text-align: center;
+          padding: 30px 0; }
+          section.menupage .content ul li a {
+            text-decoration: none;
+            text-align: center;
+            font-family: var(--fuente-oswald);
+            font-weight: 700;
+            font-size: 35px;
+            color: #fff; }
+          section.menupage .content ul li a.select {
+            padding: 8px 15px;
+            border-radius: 30px;
+            background-color: #F2E52D;
+            color: #0B682F; }
   header {
     padding: 17px 0; }
   header::before {

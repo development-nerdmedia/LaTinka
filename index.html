@@ -44,6 +44,20 @@
         </div>
     </header>
     <main>
+        <section class="menupage">
+            <div class="container">
+                <div class="top">
+                    <img src="img/close2.svg" alt="close">
+                </div>
+                <div class="content">
+                    <ul>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#preguntas">Preguntas frecuentes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
         <section class="home" id="home">
             <canvas id="my-canvas"></canvas>
             <img class="fondo-persona" src="img/mujer.png" alt="">
@@ -115,15 +129,15 @@
                                     <div class="form-group checkbox" >               
                                         <span>               
                                             <span>Forma de área:</span>                                       
-                                            <input type="checkbox" required="" id="si"><span>Cuadrada</span>
-                                            <input type="checkbox" required="" id="no"><span>Rectangular</span>
+                                            <input type="radio" required="" id="si" name="tipoArea"><span>Cuadrada</span>
+                                            <input type="radio" required="" id="no" name="tipoArea"><span>Rectangular</span>
                                         </span>               
                                     </div>                                    
                                     <div class="form-group checkbox">    
                                         <p>¿Tú local está a 150m2 de colegios o iglesias?</p>           
                                         <span>                                                      
-                                            <input type="checkbox" required="" id="si"><span>Sí</span>
-                                            <input type="checkbox" required="" id="no"><span>No</span>
+                                            <input type="radio" required="" id="si" name="ubicacion"><span>Sí</span>
+                                            <input type="radio" required="" id="no" name="ubicacion"><span>No</span>
                                         </span>               
                                     </div>
                                     <p class="msm" >Verifica si todos tus datos están conforme antes de enviar.</p>
