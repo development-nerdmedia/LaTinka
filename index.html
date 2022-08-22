@@ -60,7 +60,7 @@
         </section>
         <section class="home" id="home">
             <canvas id="my-canvas"></canvas>
-            <img class="fondo-persona" src="img/mujer.png" alt="">
+            <img class="fondo-persona" src="img/mujer2.png" alt="">
             <div class="container">
                 <div class="content">
                     <div class="part1">
@@ -70,7 +70,7 @@
                         <div class="contenido" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                             <h1>Alquilamos tu local comercial</h1>
                             <p>Completa el formulario y nos comunicaremos  en breve. </p>                            
-                            <form action="thanks.html" method="post">
+                            <form action="thanks.html" method="">
                                 <fieldset>
                                     <div class="form-group" >
                                         <span>
@@ -128,19 +128,25 @@
                                     </div>
                                     <div class="form-group checkbox" >               
                                         <span>               
-                                            <span>Forma de área:</span>                                       
+                                            <span class="texto-check-area">Forma de área:</span>                                       
                                             <input type="radio" required="" id="si" name="tipoArea"><span>Cuadrada</span>
                                             <input type="radio" required="" id="no" name="tipoArea"><span>Rectangular</span>
                                         </span>               
                                     </div>                                    
                                     <div class="form-group checkbox">    
-                                        <p>¿Tú local está a 150m2 de colegios o iglesias?</p>           
+                                        <p class="texto-check-ubi">¿Tú local está a 150m2 de colegios o iglesias?</p>           
                                         <span>                                                      
                                             <input type="radio" required="" id="si" name="ubicacion"><span>Sí</span>
                                             <input type="radio" required="" id="no" name="ubicacion"><span>No</span>
                                         </span>               
                                     </div>
-                                    <p class="msm" >Verifica si todos tus datos están conforme antes de enviar.</p>
+                                    <div class="checkbox-box">        
+                                        <span>
+                                            <input checked type="checkbox" required="" id="terminos"> 
+                                        </span>                
+                                        <p>Acepto las <a href="terminos-y-condiciones.html">políticas de privacidad</a></p>
+                                    </div> 
+                                    <p class="msm" id="msm" >Verifica si todos tus datos están conforme antes de enviar.</p>
                                     <div class="enviar">
                                         <p><input type="submit" value="Enviar"></p>
                                     </div>
@@ -157,7 +163,7 @@
                     <h2 data-aos="fade-up" data-aos-once="true">Beneficios que ofrecemos</h2>
                     <p data-aos="fade-up" data-aos-once="true">En La Tinka queremos darte la tranquilidad que todo arrendador busca al momento de alquilar su local.</p>
                     <div class="grid-beneficios">
-                        <div class="item" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+                        <div class="item" data-aos="fade-up" data-aos-once="true" data-aos-duration="500">
                             <img src="img/beneficio1.svg" alt="">
                             <p>Cobrar no será un dolor de cabeza, realizamos pagos puntuales.</p>
                         </div>
@@ -165,11 +171,11 @@
                             <img src="img/seguro.svg" alt="">
                             <p>Te aseguramos un contrato de alquiler por más de  5 años.</p>
                         </div>
-                        <div class="item" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+                        <div class="item" data-aos="fade-up" data-aos-once="true" data-aos-duration="1500">
                             <img src="img/local.svg" alt="">
                             <p>Tu local queda en las mejores manos, te garantizamos su cuidado.</p>
                         </div>
-                        <div class="item" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
+                        <div class="item" data-aos="fade-up" data-aos-once="true" data-aos-duration="2000">
                             <img src="img/confianza.png" alt="">
                             <p>Estamos respaldados por el Grupo Intercorp, para brindarte la confianza que necesitas.</p>
                         </div>
@@ -309,7 +315,7 @@
                         <h2>DÉJANOS TU PREGUNTA</h2>
                     </div>
                     <div class="part2" data-aos="fade-up" data-aos-once="true" data-aos-duration="1000">
-                        <form action="thanks.html" method="post" >
+                        <form action="thanks3.html" method="" >
                             <fieldset>                                
                                 <input type="text" placeholder="Pregunta:" required="true" data-aos-duration="1000">
                                 <div class="enviar">

@@ -110,25 +110,41 @@ MyApp = {
 			let answer = document.querySelectorAll(".faq-answer");
 			let flecha = document.querySelectorAll(".faq-collapsible img");
 
-			function answerOpen() {
-				for (let i = 0; i < answer.length; i++) {
-					answer[i].classList.remove("open");
-				}
-			}
+			// function answerOpen() {
+			// 	for (let i = 0; i < answer.length; i++) {
+			// 		if (!answer[i].classList.contains('open')) {						
+			// 			answer[i].classList.remove("open");
+			// 		} 
+			// 	}
+			// }
 
-			function flechagiro() {
-				for (let i = 0; i < flecha.length; i++) {
-					flecha[i].classList.remove("giro");
-				}
-			}
+			// function flechagiro() {
+			// 	for (let i = 0; i < flecha.length; i++) {
+			// 		if (!flecha[i].classList.contains('giro')) {
+			// 			flecha[i].classList.remove("giro");	
+			// 		}
+			// 	}
+			// }
 
+
+			// collapsible.forEach((element) => {
+			// 	element.addEventListener("click", (element) => {
+			// 		element.target.parentElement.querySelector(".faq-answer").classList.toggle("open");
+			// 		element.target.parentElement.querySelector(".faq-collapsible img").classList.toggle("giro");
+			// 		answerOpen();
+			// 		flechagiro();					
+			// 	});
+			// });
 
 			collapsible.forEach((element) => {
-				element.addEventListener("click", () => {
-					answerOpen();
-					flechagiro();
-					element.querySelector(".faq-answer").classList.add("open");
-					element.querySelector(".faq-collapsible img").classList.add("giro");
+				element.addEventListener("click", (element) => {
+					if (!element.target.parentElement.querySelector(".faq-answer").classList.contains('open')) {
+						element.target.parentElement.querySelector(".faq-answer").classList.add("open");
+						element.target.parentElement.querySelector(".faq-collapsible img").classList.add("giro");
+					}else{
+						element.target.parentElement.querySelector(".faq-answer").classList.remove("open");
+						element.target.parentElement.querySelector(".faq-collapsible img").classList.remove("giro");
+					}
 				});
 			});
 		}
@@ -156,6 +172,36 @@ MyApp = {
 				}
 			}
 
+			function validatecheckbox(e){
+				if (!document.querySelector('input[name="tipoArea"]:checked')) {
+					document.querySelector(".texto-check-area").classList.add("error");
+					e.preventDefault();
+				}
+				if (!document.querySelector('input[name="ubicacion"]:checked')) {
+					document.querySelector(".texto-check-ubi").classList.add("error");
+					e.preventDefault();
+				}
+			}
+
+			function validatePoliticas(e){
+				if ($('#terminos').is(':checked')) {        
+                }else{
+                    document.querySelector(".checkbox-box").classList.add("error");
+                }
+			}
+			
+			// function MostrarMessage(e){
+				// var mensaje = document.getElementById('msm');
+				// console.log('asdasd');
+				// if (!$('#msm').hasClass('mostrar') ) {
+					// mensaje.classList.add('mostrar');
+					// console.log("contiene");
+				// }
+			// }
+
+			$(document).on("wheel", "input[type=number]", function (e) { $(this).blur(); });
+
+
 			document.addEventListener("click", function (e) {
 				if (e.target.closest(".home form select")) {
 					formespacioselect.forEach(function (shinyItem2) {
@@ -168,8 +214,11 @@ MyApp = {
 					});
 				}
 				if (e.target.closest(".home form input[type='submit']")) {
-					validateInput(e)
-					validateSelect(e)
+					validateInput(e);
+					validateSelect(e);
+					validatecheckbox(e);
+					validatePoliticas(e);
+					// MostrarMessage(e);
 				}
 			})
 		}
