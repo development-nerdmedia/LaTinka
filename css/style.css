@@ -118,7 +118,6 @@ header {
             border: none;
             cursor: pointer;
             font-family: var(--fuente-poppins);
-            font-weight: 500;
             font-size: 26px; }
             header nav .navigation ul li.contacto button::after {
               border-radius: 50%;
