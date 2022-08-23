@@ -138,7 +138,7 @@ MyApp = {
 				}
 				if (event.target.type === "radio" & event.target.name === "tipoArea" & event.target.checked == true) {
 					var elemento = document.querySelectorAll('input[name="tipoArea"]')					
-					validarDatos(form);
+					// validarDatos(form);
 					for (var i = 0; i < elemento.length; i++) {
 						elemento[i].setAttribute("validate", "1");
 					}
@@ -166,7 +166,11 @@ MyApp = {
 						elemento[i].setAttribute("validate", "1");
 					}
 				}
-				validarDatos(form);
+				document.addEventListener("click", function (e) {
+					if (e.target.closest(".home form input[type='submit']")) {
+						validarDatos(form);
+					}
+				})
 			});
 
 
@@ -200,6 +204,8 @@ MyApp = {
 					if (!formespacioinput[y].value) {
 						formespacioinput[y].classList.add("error");
 						e.preventDefault();
+					}else{
+						formespacioinput[y].classList.remove("error");
 					}
 				}
 			}
@@ -209,6 +215,8 @@ MyApp = {
 					if (formespacioselect[y].value == "") {
 						formespacioselect[y].classList.add("error");
 						e.preventDefault();
+					}else{
+						formespacioselect[y].classList.remove("error");
 					}
 				}
 			}
@@ -217,15 +225,20 @@ MyApp = {
 				if (!document.querySelector('input[name="tipoArea"]:checked')) {
 					document.querySelector(".texto-check-area").classList.add("error");
 					e.preventDefault();
+				}else{
+					document.querySelector(".texto-check-area").classList.remove("error");
 				}
 				if (!document.querySelector('input[name="ubicacion"]:checked')) {
 					document.querySelector(".texto-check-ubi").classList.add("error");
 					e.preventDefault();
+				}else{
+					document.querySelector(".texto-check-ubi").classList.remove("error");
 				}
 			}
 
 			function validatePoliticas(e) {
 				if ($('#terminos').is(':checked')) {
+					document.querySelector(".checkbox-box").classList.remove("error");
 				} else {
 					document.querySelector(".checkbox-box").classList.add("error");
 				}
@@ -252,13 +265,12 @@ MyApp = {
 						shinyItem2.parentElement.classList.remove("active");
 					});
 				}
-				if (e.target.closest(".home form")) {
-					// formespacioinput.forEach(function (shinyItem3) {
-					// 	if (shinyItem3.value) {
-					// 		console.log("asd");
-					// 	}
-					// })
-				}
+				// if (e.target.closest(".home form")) {
+				// 	validateInput(e);
+				// 	validateSelect(e);
+				// 	validatecheckbox(e);
+				// 	validatePoliticas(e);
+				// }
 				if (e.target.closest(".home form input[type='submit']")) {
 					validateInput(e);
 					validateSelect(e);
