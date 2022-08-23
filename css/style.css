@@ -550,15 +550,14 @@ section.preguntas {
     section.preguntas .faq-content .faq-collapsible {
       display: flex;
       justify-content: space-between;
-      align-items: center; }
+      align-items: center;
+      pointer-events: none; }
       section.preguntas .faq-content .faq-collapsible img {
         transform: rotate(90deg);
         width: 21px;
         height: 16px;
         transition: 0.2s linear;
         pointer-events: none; }
-    section.preguntas .faq-content .faq-collapsible img.giro {
-      transform: rotate(-90deg); }
     section.preguntas .faq-content .faq-container {
       border-bottom: 3px solid #0B682F;
       margin-top: 60px;
@@ -568,9 +567,11 @@ section.preguntas {
       overflow: hidden;
       transition: 0.5s linear;
       max-height: 0; }
-    section.preguntas .faq-content .open {
-      max-height: 100px;
-      transform: translateY(0); }
+  section.preguntas .faq-container.open .faq-answer {
+    max-height: 100px;
+    transform: translateY(0); }
+  section.preguntas .faq-container.open .faq-collapsible img {
+    transform: rotate(-90deg); }
 
 section.tarjeta-preg {
   padding: 140px 0;

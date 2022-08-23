@@ -712,6 +712,7 @@ section.preguntas{
             display: flex;
             justify-content: space-between;
             align-items: center;
+            pointer-events: none;
             img{
                 transform: rotate(90deg);
                 width: 21px;
@@ -720,9 +721,9 @@ section.preguntas{
                 pointer-events: none;
             }
         }
-        .faq-collapsible img.giro{
-            transform: rotate(-90deg);
-        }
+        // .faq-collapsible img.giro{
+        //     transform: rotate(-90deg);
+        // }
         .faq-container{
             border-bottom: 3px solid #0B682F;
             margin-top: 60px;
@@ -734,9 +735,19 @@ section.preguntas{
             transition: 0.5s linear;
             max-height: 0;
         }
-        .open{
+        // .open{
+        //     max-height: 100px;
+        //     transform: translateY(0);
+        // }
+    }
+    
+    .faq-container.open{
+        .faq-answer{
             max-height: 100px;
             transform: translateY(0);
+        }
+        .faq-collapsible img{
+            transform: rotate(-90deg);
         }
     }
 }

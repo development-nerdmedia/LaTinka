@@ -107,43 +107,15 @@ MyApp = {
 	preguntas: {
 		init: function () {
 			let collapsible = document.querySelectorAll(".faq-container");
-			let answer = document.querySelectorAll(".faq-answer");
-			let flecha = document.querySelectorAll(".faq-collapsible img");
-
-			// function answerOpen() {
-			// 	for (let i = 0; i < answer.length; i++) {
-			// 		if (!answer[i].classList.contains('open')) {						
-			// 			answer[i].classList.remove("open");
-			// 		} 
-			// 	}
-			// }
-
-			// function flechagiro() {
-			// 	for (let i = 0; i < flecha.length; i++) {
-			// 		if (!flecha[i].classList.contains('giro')) {
-			// 			flecha[i].classList.remove("giro");	
-			// 		}
-			// 	}
-			// }
-
-
-			// collapsible.forEach((element) => {
-			// 	element.addEventListener("click", (element) => {
-			// 		element.target.parentElement.querySelector(".faq-answer").classList.toggle("open");
-			// 		element.target.parentElement.querySelector(".faq-collapsible img").classList.toggle("giro");
-			// 		answerOpen();
-			// 		flechagiro();					
-			// 	});
-			// });
-
 			collapsible.forEach((element) => {
 				element.addEventListener("click", (element) => {
-					if (!element.target.parentElement.querySelector(".faq-answer").classList.contains('open')) {
-						element.target.parentElement.querySelector(".faq-answer").classList.add("open");
-						element.target.parentElement.querySelector(".faq-collapsible img").classList.add("giro");
+					if (!element.target.classList.contains('open')) {
+						for (let i = 0; i < collapsible.length; i++) {
+							collapsible[i].classList.remove("open");							
+						}
+						element.target.classList.add("open");
 					}else{
-						element.target.parentElement.querySelector(".faq-answer").classList.remove("open");
-						element.target.parentElement.querySelector(".faq-collapsible img").classList.remove("giro");
+						element.target.classList.remove("open");
 					}
 				});
 			});
