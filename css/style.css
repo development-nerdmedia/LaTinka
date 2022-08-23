@@ -330,7 +330,8 @@ section.home {
             font-family: var(--fuente-poppins);
             font-weight: 500;
             font-size: 23px;
-            color: #DB2727; }
+            color: #DB2727;
+            display: none; }
           section.home .content .part2 form fieldset p.msm.mostrar {
             display: block; }
           section.home .content .part2 form fieldset .enviar {

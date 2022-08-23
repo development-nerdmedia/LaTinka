@@ -111,10 +111,10 @@ MyApp = {
 				element.addEventListener("click", (element) => {
 					if (!element.target.classList.contains('open')) {
 						for (let i = 0; i < collapsible.length; i++) {
-							collapsible[i].classList.remove("open");							
+							collapsible[i].classList.remove("open");
 						}
 						element.target.classList.add("open");
-					}else{
+					} else {
 						element.target.classList.remove("open");
 					}
 				});
@@ -122,9 +122,78 @@ MyApp = {
 		}
 	},
 	contacto: {
-		init: function () {			
+		init: function () {
 			var formespacioinput = document.querySelectorAll('.home .form-input');
 			var formespacioselect = document.querySelectorAll('.home form select');
+			$(document).on("wheel", "input[type=number]", function (e) { $(this).blur(); });
+			var mensaje = document.getElementById('msm');
+			const form = document.getElementById('form');
+
+			form.addEventListener('focusin', (event) => {
+				if (event.target.type === "radio" & event.target.name === "ubicacion" & event.target.checked == true) {
+					var elemento = document.querySelectorAll('input[name="ubicacion"]')
+					for (var i = 0; i < elemento.length; i++) {
+						elemento[i].setAttribute("validate", "1");
+					}
+				}
+				if (event.target.type === "radio" & event.target.name === "tipoArea" & event.target.checked == true) {
+					var elemento = document.querySelectorAll('input[name="tipoArea"]')					
+					validarDatos(form);
+					for (var i = 0; i < elemento.length; i++) {
+						elemento[i].setAttribute("validate", "1");
+					}
+				}
+			});
+
+			form.addEventListener('focusout', (event) => {
+				// if (event.target.value != '') {
+				// 	event.target.style.background = 'green';
+				// 	event.target.setAttribute('validate', '1')
+
+				// }else{
+				// 	event.target.style.background = 'red';
+				// 	event.target.setAttribute('validate', '0')
+				// }
+				if (event.target.type === "radio" & event.target.name === "ubicacion" & event.target.checked == true) {
+					var elemento = document.querySelectorAll('input[name="ubicacion"]')
+					for (var i = 0; i < elemento.length; i++) {
+						elemento[i].setAttribute("validate", "1");
+					}
+				}
+				if (event.target.type === "radio" & event.target.name === "tipoArea" & event.target.checked == true) {
+					var elemento = document.querySelectorAll('input[name="tipoArea"]')
+					for (var i = 0; i < elemento.length; i++) {
+						elemento[i].setAttribute("validate", "1");
+					}
+				}
+				validarDatos(form);
+			});
+
+
+
+			function validarDatos(form) {
+				var dato = 0;
+				var info = document.querySelectorAll("#form [validate]");
+				Array.from(info).forEach(element => {
+					if (element.value == '' || (element.checked == false & element.value == "on" & element.type == "checkbox")) {
+						// console.log(element.checked);
+						dato++
+					}
+					if (element.type === "radio" & element.name === "tipoArea" & element.checked == false & element.attributes.validate.value === "0") {
+						dato++
+					}
+					if (element.type === "radio" & element.name === "ubicacion" & element.checked == false & element.attributes.validate.value === "0") {
+						
+						dato++
+					}
+				});
+				if (dato == 0) {
+					mensaje.classList.add('mostrar');
+				} else {
+					console.log(dato + 'falta');
+					mensaje.classList.remove('mostrar');
+				}
+			}
 
 			function validateInput(e) {
 				for (let y = 0; y < formespacioinput.length; y++) {
@@ -144,7 +213,7 @@ MyApp = {
 				}
 			}
 
-			function validatecheckbox(e){
+			function validatecheckbox(e) {
 				if (!document.querySelector('input[name="tipoArea"]:checked')) {
 					document.querySelector(".texto-check-area").classList.add("error");
 					e.preventDefault();
@@ -155,23 +224,21 @@ MyApp = {
 				}
 			}
 
-			function validatePoliticas(e){
-				if ($('#terminos').is(':checked')) {        
-                }else{
-                    document.querySelector(".checkbox-box").classList.add("error");
-                }
+			function validatePoliticas(e) {
+				if ($('#terminos').is(':checked')) {
+				} else {
+					document.querySelector(".checkbox-box").classList.add("error");
+				}
 			}
-			
-			// function MostrarMessage(e){
-				// var mensaje = document.getElementById('msm');
-				// console.log('asdasd');
-				// if (!$('#msm').hasClass('mostrar') ) {
-					// mensaje.classList.add('mostrar');
-					// console.log("contiene");
-				// }
-			// }
 
-			$(document).on("wheel", "input[type=number]", function (e) { $(this).blur(); });
+			// function MostrarMessage(e){
+			// var mensaje = document.getElementById('msm');
+			// console.log('asdasd');
+			// if (!$('#msm').hasClass('mostrar') ) {
+			// mensaje.classList.add('mostrar');
+			// console.log("contiene");
+			// }
+			// }
 
 
 			document.addEventListener("click", function (e) {
@@ -184,6 +251,13 @@ MyApp = {
 					formespacioselect.forEach(function (shinyItem2) {
 						shinyItem2.parentElement.classList.remove("active");
 					});
+				}
+				if (e.target.closest(".home form")) {
+					// formespacioinput.forEach(function (shinyItem3) {
+					// 	if (shinyItem3.value) {
+					// 		console.log("asd");
+					// 	}
+					// })
 				}
 				if (e.target.closest(".home form input[type='submit']")) {
 					validateInput(e);
@@ -198,8 +272,8 @@ MyApp = {
 	menupage: {
 		init: function () {
 			var enlacesMenu = document.querySelectorAll('.menupage .content ul li a');
-			
-			window.onscroll = function(){
+
+			window.onscroll = function () {
 				var scroll = document.documentElement.scrollTop;
 				if (scroll <= 0) {
 					enlacesMenu.forEach((enlace) => enlace.classList.remove('select'));
@@ -212,7 +286,7 @@ MyApp = {
 					evento.target.classList.add('select');
 				})
 			})
-			
+
 			document.addEventListener("click", function (e) {
 				if (e.target.closest("header nav .navigation ul li.btmmenumovil")) {
 					document.querySelector(".menupage").classList.add("open")

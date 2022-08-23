@@ -70,30 +70,30 @@
                         <div class="contenido" data-aos="fade-up" data-aos-duration="1000" data-aos-once="true">
                             <h1>Alquilamos tu local comercial</h1>
                             <p>Completa el formulario y nos comunicaremos  en breve. </p>                            
-                            <form action="thanks.html" method="">
+                            <form action="thanks.html" method="" id="form">
                                 <fieldset>
                                     <div class="form-group" >
                                         <span>
-                                            <input class="form-input" type="text" required="true" name="name" id="name" placeholder="Nombre y apellido:">
+                                            <input class="form-input" validate="0" type="text" required="true" name="name" id="name" placeholder="Nombre y apellido:">
                                         </span>
                                     </div>
                                     <div class="form-group-col" >
                                         <div class="form-group" >
                                             <span>
-                                                <input class="form-input" type="number" required="true" name="name" id="tel" placeholder="Teléfono:">
+                                                <input class="form-input" validate="0" type="number" required="true" name="name" id="tel" placeholder="Teléfono:">
                                             </span>
                                         </div>
                                         <div class="form-group" >
                                             <span>
-                                                <input class="form-input" type="email" required="true" name="name" id="email" placeholder="Correo electrónico:">
+                                                <input class="form-input" validate="0" type="email" required="true" name="name" id="email" placeholder="Correo electrónico:">
                                             </span>
                                         </div>
                                     </div>
                                     <div class="form-group-col">
                                         <div class="form-group select" >
                                             <span>
-                                                <select name="provincia" id="provincia">
-                                                    <option value="0">Provincia:</option>
+                                                <select validate="0" name="provincia" id="provincia">
+                                                    <option value="">Provincia:</option>
                                                     <option value="Provincia1">Provincia 1</option>
                                                     <option value="Provincia2">Provincia 2</option>
                                                     <option value="Provincia3">Provincia 3</option>
@@ -102,8 +102,8 @@
                                         </div>
                                         <div class="form-group select" >
                                             <span>
-                                                <select name="distrito" id="distrito">
-                                                    <option value="0">Distrito:</option>
+                                                <select validate="0" name="distrito" id="distrito">
+                                                    <option value="">Distrito:</option>
                                                     <option value="Distrito1">Distrito 1</option>
                                                     <option value="Distrito2">Distrito 2</option>
                                                     <option value="Distrito3">Distrito 3</option>
@@ -113,36 +113,37 @@
                                     </div>
                                     <div class="form-group" >
                                         <span>
-                                            <input class="form-input" type="text" required="true" name="direcion" id="direcion" placeholder="Dirección:">
+                                            <input class="form-input" validate="0" type="text" required="true" name="direcion" id="direcion" placeholder="Dirección:">
                                         </span>
                                     </div>
                                     <div class="form-group">
                                         <span>
-                                            <input class="form-input" type="text" required="true" name="referencia" id="referencia" placeholder="Referencia:">
+                                            <input class="form-input" validate="0" type="text" required="true" name="referencia" id="referencia" placeholder="Referencia:">
                                         </span>
                                     </div>
                                     <div class="form-group" >
                                         <span>
-                                            <input class="form-input" type="number" required="true" name="area" id="area" placeholder="Área (m2):">
+                                            <input class="form-input" validate="0" type="number" required="true" name="area" id="area" placeholder="Área (m2):">
                                         </span>
                                     </div>
                                     <div class="form-group checkbox" >               
                                         <span>               
                                             <span class="texto-check-area">Forma de área:</span>                                       
-                                            <input type="radio" required="" id="si" name="tipoArea"><span>Cuadrada</span>
-                                            <input type="radio" required="" id="no" name="tipoArea"><span>Rectangular</span>
+                                            <input type="radio" required="" validate="0" id="cuadrada" value="cuadrada" name="tipoArea"><span>Cuadrada</span>
+                                            <input type="radio" required="" validate="0" id="rectangular" value="rectangular" name="tipoArea"><span>Rectangular</span>
                                         </span>               
                                     </div>                                    
                                     <div class="form-group checkbox">    
                                         <p class="texto-check-ubi">¿Tú local está a 150m2 de colegios o iglesias?</p>           
                                         <span>                                                      
-                                            <input type="radio" required="" id="si" name="ubicacion"><span>Sí</span>
-                                            <input type="radio" required="" id="no" name="ubicacion"><span>No</span>
+                                            <input type="radio" required="" validate="0" id="si" value="si" name="ubicacion"><span>Sí</span>
+                                            <input type="radio" required="" validate="0" id="no" value="no" name="ubicacion"><span>No</span>
                                         </span>               
                                     </div>
                                     <div class="checkbox-box">        
                                         <span>
-                                            <input checked type="checkbox" required="" id="terminos"> 
+                                            <!-- checked -->
+                                            <input validate="1" checked type="checkbox" required="" id="terminos"> 
                                         </span>                
                                         <p>Acepto las <a href="terminos-y-condiciones.html">políticas de privacidad</a></p>
                                     </div> 
