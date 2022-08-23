@@ -206,7 +206,7 @@ MyApp = {
 
 			function validateSelect(e) {
 				for (let y = 0; y < formespacioselect.length; y++) {
-					if (formespacioselect[y].value == "0") {
+					if (formespacioselect[y].value == "") {
 						formespacioselect[y].classList.add("error");
 						e.preventDefault();
 					}
