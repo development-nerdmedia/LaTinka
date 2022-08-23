@@ -194,7 +194,7 @@ section.home {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 40px 0; }
+    padding: 80px 0; }
     section.home .content .part1 {
       width: 50%; }
       section.home .content .part1 img {
@@ -209,7 +209,8 @@ section.home {
         padding: 40px;
         background-color: #fff;
         border-radius: 20px;
-        margin-left: 70px; }
+        margin-left: 70px;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); }
       section.home .content .part2 h1 {
         text-transform: uppercase;
         font-family: var(--fuente-oswald);
@@ -340,7 +341,8 @@ section.home {
             font-weight: 500;
             font-size: 23px;
             color: #DB2727;
-            display: none; }
+            display: none;
+            text-align: start !important; }
           section.home .content .part2 form fieldset p.msm.mostrar {
             display: block; }
           section.home .content .part2 form fieldset .enviar {
@@ -359,7 +361,7 @@ section.home {
                 padding: 10px 35px;
                 border-radius: 30px;
                 font-family: var(--fuente-poppins);
-                font-weight: 500;
+                font-weight: 600;
                 font-size: 26px;
                 border: none;
                 -webkit-border-radius: 10;
@@ -648,7 +650,8 @@ section.tarjeta-preg {
         padding: 12px 37px;
         background-color: var(--color-rojo);
         border-radius: 30px;
-        cursor: pointer; }
+        cursor: pointer;
+        font-weight: 600; }
 
 footer {
   padding: 60px 0;
@@ -1460,9 +1463,7 @@ section.testimonios .card-testimonios .part2 {
   section.testimonios .card {
     max-width: 290px; }
   section.testimonios .img-tienda img {
-    width: 330px; }
-  section.home .content {
-    padding: 60px 0; } }
+    width: 330px; } }
 
 @media (max-width: 750px) {
   section.testimonios .card {
@@ -1526,6 +1527,8 @@ section.testimonios .card-testimonios .part2 {
     font-size: 23px; } }
 
 @media (max-width: 500px) {
+  .pagethanks .content {
+    padding: 25px; }
   section.home .content .part2 form fieldset .enviar p input {
     font-size: 20px; }
   section.testimonios .btn a {
@@ -1610,6 +1613,10 @@ section.testimonios .card-testimonios .part2 {
     margin-top: 10px; }
   footer .content .part2 p {
     margin-right: 0px; } }
+
+@media (max-width: 398px) {
+  section.menupage .content ul li a {
+    font-size: 30px; } }
 
 @media (max-width: 380px) {
   section.home .content .part2 .contenido {
