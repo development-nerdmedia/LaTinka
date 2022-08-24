@@ -168,14 +168,14 @@ MyApp = {
 				}
 				document.addEventListener("click", function (e) {
 					if (e.target.closest(".home form input[type='submit']")) {
-						validarDatos(form);
+						validarDatos(form, e);
 					}
 				})
 			});
 
 
 
-			function validarDatos(form) {
+			function validarDatos(form,e) {
 				var dato = 0;
 				var info = document.querySelectorAll("#form [validate]");
 				Array.from(info).forEach(element => {
@@ -193,6 +193,15 @@ MyApp = {
 				});
 				if (dato == 0) {
 					mensaje.classList.add('mostrar');
+					e.preventDefault(e)
+					if (document.querySelector("#msm.mostrar") ) {
+						console.log("contiene la clase mostrar");
+						document.addEventListener("click", function (e) {
+							if (e.target.closest(".home form input[type='submit']")) {								
+								document.querySelector('.home form').submit();
+							}
+						})
+					}
 				} else {
 					console.log(dato + 'falta');
 					mensaje.classList.remove('mostrar');
