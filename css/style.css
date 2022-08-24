@@ -803,7 +803,7 @@ section.home .content .part2 img {
 section.testimonios .card-testimonios .part2 {
   display: none; }
 
-@media (max-width: 1800px) {
+@media (max-width: 1870px) {
   section.home .fondo-persona {
     position: absolute;
     top: -343px;
@@ -847,13 +847,13 @@ section.testimonios .card-testimonios .part2 {
   section.testimonios .card {
     max-width: 350px; } }
 
-@media (max-width: 1630px) {
+@media (max-width: 1730px) {
   section.home .content .part2 .contenido {
     margin-left: 35px; }
   section.home .fondo-persona {
     position: absolute;
     top: -214px;
-    left: -376px;
+    left: -345px;
     height: 100%;
     width: 1583.44px;
     height: 1590.14px; } }
@@ -864,7 +864,7 @@ section.testimonios .card-testimonios .part2 {
   footer::after {
     right: 43%; } }
 
-@media (max-width: 1530px) {
+@media (max-width: 1610px) {
   section.home .content .part2 form fieldset .form-group-col:nth-child(2) {
     display: flex;
     flex-direction: column; }
@@ -874,7 +874,7 @@ section.testimonios .card-testimonios .part2 {
     width: 100%; }
   section.home .fondo-persona {
     top: -122px;
-    left: -319px;
+    left: -292px;
     width: 1405.53px;
     height: 1411.51px; } }
 
