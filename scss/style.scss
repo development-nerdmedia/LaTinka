@@ -206,11 +206,19 @@ section.home{
     object-fit: cover;
     position: relative;
     .fondo-persona{
+        // position: absolute;
+        // top: -40px;
+        // left: -67px;/*95*/
+        // height: 100%;
+        // width: 1945.85px;
+        // height: 1957.1px;
+        // transform: scale(1.6);/*1.6*/
         position: absolute;
-        top: -40px;
-        left: -67px;/*95*/
+        top: -409px;
+        left: -434px;
         height: 100%;
-        transform: scale(1.6);
+        width: 1948.85px;
+        height: 1957.1px;
     }
     canvas{
         position: absolute;
@@ -1033,8 +1041,15 @@ section.testimonios .card-testimonios .part2{
 
 @media (max-width: 1800px) {
     section.home .fondo-persona{
-        transform: scale(1.5);
-        left: -91px; /*-150px*/
+        // transform: scale(1.5);
+        // left: -91px; /*-150px*/
+        position: absolute;
+        top: -343px;
+        left: -434px;
+        height: 100%;
+        width: 1827.05px;
+        height: 1834.78px;
+        
     }
 }
 
@@ -1096,8 +1111,14 @@ section.testimonios .card-testimonios .part2{
         margin-left: 35px;
     }
     section.home .fondo-persona {
-        transform: scale(1.3);
-        left: -152px;/*184*/
+        // transform: scale(1.3);
+        // left: -152px;/*184*/
+        position: absolute;
+        top: -214px;
+        left: -376px;
+        height: 100%;
+        width: 1583.44px;
+        height: 1590.14px;
     }
 }
 
@@ -1122,24 +1143,32 @@ section.testimonios .card-testimonios .part2{
         width: 100%;
     }
     section.home .fondo-persona {
-        transform: scale(1.1);
-        left: -250px;
+        // transform: scale(1.1);
+        // left: -250px;
+        top: -122px;
+        left: -319px;
+        width: 1405.53px;
+        height: 1411.51px;
     }
 }
 
-@media (max-width: 1490px){
-    section.home .fondo-persona {
-        left: -279px;
-    }
-} 
+// @media (max-width: 1490px){
+//     section.home .fondo-persona {
+//         left: -279px;
+//     }
+// } 
 
 @media (max-width: 1440px) {
     .pagethanks .content{
         max-width: 700px;
     }
     section.home .fondo-persona {
-        transform: scale(1.2);
-        left: -214px;
+        // transform: scale(1.2);
+        // left: -214px;
+        top: -163px;
+        left: -353px;
+        width: 1439.79px;
+        height: 1445.89px;
     }
     header{
         .container{
@@ -1272,16 +1301,20 @@ section.testimonios .card-testimonios .part2{
 
 @media (max-width: 1400px){
     section.home .fondo-persona {
-        transform: scale(1.1);
-        left: -250px;
+        // transform: scale(1.1);
+        // left: -250px;
+        top: -110px;
+        left: -321px;
+        width: 1350.85px;
+        height: 1356.57px;
     }
 }
 
 @media (max-width: 1399px){
-    section.home .fondo-persona {
-        transform: scale(1.3);
-        left: -229px;
-    }
+    // section.home .fondo-persona {
+    //     transform: scale(1.3);
+    //     left: -229px;
+    // }
 }
 
 @media (max-width: 1380px){
@@ -1317,8 +1350,12 @@ section.testimonios .card-testimonios .part2{
     max-width: 323px;
     }
     section.home .fondo-persona {
-        transform: scale(1);
-        left: -270px;
+    //     transform: scale(1);
+    //     left: -270px;
+        top: -110px;
+        left: -321px;
+        width: 1300.85px;
+        height: 1306.57px;
     }
     section.home .content .part2 .contenido {
         margin-left: 0px;
