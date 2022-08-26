@@ -54,6 +54,12 @@ function smoothScrollTo(endX, endY, duration) {
 	}, 1000 / 60); // 60 fps
 }
 
+if ($('.home').length > 0) {
+    $(".home .part1 .img").stick_in_parent({
+        offset_top: 180
+    });
+}
+
 
 MyApp = {
 	inputTarjeta: {
@@ -92,7 +98,7 @@ MyApp = {
 					for (let i = 0; i < listaItem.length; i++) {
 						listaItem[i].setAttribute("data-aos", "fade-right")
 						listaItem[i].setAttribute("data-aos-once", "true")
-						listaItem[i].setAttribute("data-aos-offset", "500")
+						listaItem[i].setAttribute("data-aos-offset", "570")
 					}
 				}
 			} else {
