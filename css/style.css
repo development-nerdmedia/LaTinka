@@ -970,6 +970,10 @@ section.testimonios .card-testimonios .part2 {
     width: 1405.53px;
     height: 1411.51px; } }
 
+@media (max-width: 1500px) {
+  section.home .content .part2 form fieldset .form-group.checkbox span span {
+    display: block; } }
+
 @media (max-width: 1440px) {
   section.home .content .part1 img {
     width: 100%;
@@ -1115,6 +1119,8 @@ section.testimonios .card-testimonios .part2 {
     margin-left: 0px; } }
 
 @media (max-width: 1280px) {
+  section.home .content .part2 form fieldset .form-group.checkbox span span {
+    display: inline-block; }
   section.home {
     background-image: url(../img/fondohome.jpg); }
   section.home .fondo-persona {
@@ -1646,7 +1652,9 @@ section.testimonios .card-testimonios .part2 {
   header::before {
     width: 45%; }
   header::after {
-    right: 45%; } }
+    right: 45%; }
+  section.home .content .part2 form fieldset .form-group.checkbox span span {
+    display: block; } }
 
 @media (max-width: 518px) {
   header::before {
