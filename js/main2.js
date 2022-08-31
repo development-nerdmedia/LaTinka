@@ -1,8 +1,42 @@
 AOS.init();
+var estadoform = sessionStorage.getItem("estado");
+const URLactual = window.location;
+
+if (window.performance.navigation.type == 1){
+    // e.preventDefault();
+    sessionStorage.setItem('estado', `none`);
+    location.href = URLactual;
+}
+
+
+
+if (estadoform == "none") {
+    document.querySelector(".pagethanksDesaprobada").classList.remove('open');
+    document.querySelector(".pagethanksAprobada").classList.remove('open');
+    document.querySelector(".pagethanksPreguntas").classList.remove('open');
+    document.querySelector("body").classList.remove("scrollhidden")
+}
+if (estadoform == "aprobada") {
+    document.querySelector(".pagethanksAprobada").classList.add('open');
+    document.querySelector("body").classList.add("scrollhidden")
+}
+if (estadoform == "desaprobada") {
+    document.querySelector(".pagethanksDesaprobada").classList.add('open');
+    document.querySelector("body").classList.add("scrollhidden")
+}
+if (estadoform == "preguntarecibida") {
+    document.querySelector(".pagethanksPreguntas").classList.add('open');
+    document.querySelector("body").classList.add("scrollhidden")
+}
+
+
 
 var confettiSettings = { target: 'my-canvas' };
 var confetti = new ConfettiGenerator(confettiSettings);
 confetti.render();
+
+
+/* efecto de desplazamiento de los botones de menú */
 
 const menuItems = document.querySelectorAll(
     'a[href^="#"]'
@@ -54,6 +88,7 @@ function smoothScrollTo(endX, endY, duration) {
     }, 1000 / 60); // 60 fps
 }
 
+/* END efecto de desplazamiento de los botones de menú */
 
 if ($('.home').length > 0) {
     $(".home .part1 .img").stick_in_parent({
@@ -251,8 +286,9 @@ MyApp = {
                     for (let i = 0; i < thanks.length; i++) {
                         thanks[i].classList.remove("open");
                         document.querySelector("body").classList.remove("scrollhidden")
-                        document.querySelector('.home form').submit();
-                        document.querySelector('.home form').reset();
+                        sessionStorage.setItem('estado', `none`);
+                        // document.querySelector('.home form').submit();
+                        // document.querySelector('.home form').reset();
                     }
                 }
                 if (e.target.closest(".home form input[type='submit']")) {
@@ -261,13 +297,17 @@ MyApp = {
                     validatecheckbox(e);
                     validatePoliticas(e);
                     if (document.querySelector("#msm.mostrar")) {
+                        // document.querySelector('.home form').submit();
                         if (valorArea.value < 70 & valorArea.value > 30) {
-                            // console.log("se envio");
-                            thanksAprobada.classList.add('open');
-                            document.querySelector("body").classList.add("scrollhidden")
+                            sessionStorage.setItem('estado', `aprobada`);
+                            document.querySelector('.home form').submit();
+                            // thanksAprobada.classList.add('open');
+                            // document.querySelector("body").classList.add("scrollhidden")
                         } else {
-                            thanksDesaprobada.classList.add('open');
-                            document.querySelector("body").classList.add("scrollhidden")
+                            sessionStorage.setItem('estado', `desaprobada`);
+                            document.querySelector('.home form').submit();
+                            // thanksDesaprobada.classList.add('open');
+                            // document.querySelector("body").classList.add("scrollhidden")
                         }
                     }
                 }
@@ -285,10 +325,11 @@ MyApp = {
                         formespacioinput2[y].classList.add("error");
                         e.preventDefault();
                     } else {
-                        e.preventDefault();
-                        thanksPreguntas.classList.add('open');
+                        sessionStorage.setItem('estado', `preguntarecibida`);
+                        document.querySelector('.home form').submit();
+                        // thanksPreguntas.classList.add('open');
                         // document.querySelector('.tarjeta-preg form').reset();
-                        document.querySelector("body").classList.add("scrollhidden")
+                        // document.querySelector("body").classList.add("scrollhidden")
                     }
                 }
             }
@@ -299,9 +340,10 @@ MyApp = {
                 }
 				if (e.target.closest(".pagethanksPreguntas .btn")) {
                     document.querySelector(".pagethanksPreguntas").classList.remove("open");
+                    sessionStorage.setItem('estado', `none`);
                     document.querySelector(".pagethanksPreguntas").classList.remove("scrollhidden")
-                    document.querySelector('.tarjeta-preg form').submit();
-                    document.querySelector('.tarjeta-preg form').reset();
+                    // document.querySelector('.tarjeta-preg form').submit();
+                    // document.querySelector('.tarjeta-preg form').reset();
                 }
             })
         }

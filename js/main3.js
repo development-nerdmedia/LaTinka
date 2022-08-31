@@ -1,8 +1,50 @@
 AOS.init();
+var estadoform = localStorage.getItem("estado");
+const URLactual = window.location;
+var estadoPopup = 0;
+
+if (window.performance.navigation.type == 1){
+    // e.preventDefault();
+    // localStorage.setItem('estado', `none`);
+    var estadoPopup = 0;
+    location.href = URLactual;
+}
+// window.onbeforeunload = function(e) {
+//     e.preventDefault();
+//     localStorage.setItem('estado', `none`);
+// };
+// window.onbeforeunload = function() { localStorage.removeItem(estado); return ''; };
+// window.onbeforeunload = function() { localStorage.removeItem(key); return ''; };
+
+
+
+if (estadoPopup == 0) {
+    document.querySelector(".pagethanksDesaprobada").classList.remove('open');
+    document.querySelector(".pagethanksAprobada").classList.remove('open');
+    document.querySelector(".pagethanksPreguntas").classList.remove('open');
+    document.querySelector("body").classList.remove("scrollhidden")
+}
+if (estadoPopup == 1) {
+    document.querySelector(".pagethanksAprobada").classList.add('open');
+    document.querySelector("body").classList.add("scrollhidden")
+}
+if (estadoPopup == 2) {
+    document.querySelector(".pagethanksDesaprobada").classList.add('open');
+    document.querySelector("body").classList.add("scrollhidden")
+}
+if (estadoPopup == 3) {
+    document.querySelector(".pagethanksPreguntas").classList.add('open');
+    document.querySelector("body").classList.add("scrollhidden")
+}
+
+
 
 var confettiSettings = { target: 'my-canvas' };
 var confetti = new ConfettiGenerator(confettiSettings);
 confetti.render();
+
+
+/* efecto de desplazamiento de los botones de menú */
 
 const menuItems = document.querySelectorAll(
     'a[href^="#"]'
@@ -54,6 +96,7 @@ function smoothScrollTo(endX, endY, duration) {
     }, 1000 / 60); // 60 fps
 }
 
+/* END efecto de desplazamiento de los botones de menú */
 
 if ($('.home').length > 0) {
     $(".home .part1 .img").stick_in_parent({
@@ -251,8 +294,10 @@ MyApp = {
                     for (let i = 0; i < thanks.length; i++) {
                         thanks[i].classList.remove("open");
                         document.querySelector("body").classList.remove("scrollhidden")
-                        document.querySelector('.home form').submit();
-                        document.querySelector('.home form').reset();
+                        estadoPopup = 0;
+                        // localStorage.setItem('estado', `none`);
+                        // document.querySelector('.home form').submit();
+                        // document.querySelector('.home form').reset();
                     }
                 }
                 if (e.target.closest(".home form input[type='submit']")) {
@@ -261,13 +306,19 @@ MyApp = {
                     validatecheckbox(e);
                     validatePoliticas(e);
                     if (document.querySelector("#msm.mostrar")) {
+                        // document.querySelector('.home form').submit();
                         if (valorArea.value < 70 & valorArea.value > 30) {
-                            // console.log("se envio");
-                            thanksAprobada.classList.add('open');
-                            document.querySelector("body").classList.add("scrollhidden")
+                            // localStorage.setItem('estado', `aprobada`);
+                            estadoPopup = 1;
+                            document.querySelector('.home form').submit();
+                            // thanksAprobada.classList.add('open');
+                            // document.querySelector("body").classList.add("scrollhidden")
                         } else {
-                            thanksDesaprobada.classList.add('open');
-                            document.querySelector("body").classList.add("scrollhidden")
+                            // localStorage.setItem('estado', `desaprobada`);
+                            estadoPopup = 2;
+                            document.querySelector('.home form').submit();
+                            // thanksDesaprobada.classList.add('open');
+                            // document.querySelector("body").classList.add("scrollhidden")
                         }
                     }
                 }
@@ -285,10 +336,12 @@ MyApp = {
                         formespacioinput2[y].classList.add("error");
                         e.preventDefault();
                     } else {
-                        e.preventDefault();
-                        thanksPreguntas.classList.add('open');
+                        // localStorage.setItem('estado', `preguntarecibida`);
+                        estadoPopup = 3;
+                        document.querySelector('.home form').submit();
+                        // thanksPreguntas.classList.add('open');
                         // document.querySelector('.tarjeta-preg form').reset();
-                        document.querySelector("body").classList.add("scrollhidden")
+                        // document.querySelector("body").classList.add("scrollhidden")
                     }
                 }
             }
@@ -299,9 +352,11 @@ MyApp = {
                 }
 				if (e.target.closest(".pagethanksPreguntas .btn")) {
                     document.querySelector(".pagethanksPreguntas").classList.remove("open");
+                    // localStorage.setItem('estado', `none`);
+                    estadoPopup = 0;
                     document.querySelector(".pagethanksPreguntas").classList.remove("scrollhidden")
-                    document.querySelector('.tarjeta-preg form').submit();
-                    document.querySelector('.tarjeta-preg form').reset();
+                    // document.querySelector('.tarjeta-preg form').submit();
+                    // document.querySelector('.tarjeta-preg form').reset();
                 }
             })
         }
